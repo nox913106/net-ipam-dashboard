@@ -1,2149 +1,2153 @@
 {
-    "annotations": {
-        "list": [
-            {
-                "builtIn": 1,
-                "datasource": {
-                    "type": "grafana",
-                    "uid": "-- Grafana --"
-                },
-                "enable": true,
-                "hide": true,
-                "iconColor": "rgba(0, 211, 255, 1)",
-                "name": "Annotations & Alerts",
-                "type": "dashboard"
-            }
-        ]
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 2021,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 100,
+      "title": "📊 全局概覽",
+      "type": "row"
     },
-    "editable": true,
-    "fiscalYearStartMonth": 0,
-    "graphTooltip": 0,
-    "id": 1911,
-    "links": [],
-    "panels": [
-        {
-            "collapsed": false,
-            "gridPos": {
-                "h": 1,
-                "w": 24,
-                "x": 0,
-                "y": 0
-            },
-            "id": 100,
-            "title": "📊 全局概覽",
-            "type": "row"
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
         },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "fixedColor": "blue",
-                        "mode": "fixed"
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "blue",
-                                "value": null
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 4,
-                "w": 8,
-                "x": 0,
-                "y": 1
-            },
-            "id": 1,
-            "options": {
-                "colorMode": "background",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                },
-                "showPercentChange": false,
-                "textMode": "auto",
-                "wideLayout": true
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "format": "table",
-                    "rawSql": "SELECT COUNT(*) AS total FROM ipaddresses\nWHERE 1=1\n  AND subnetId NOT IN (SELECT s2.id FROM subnets s2 JOIN sections sec2 ON s2.sectionId = sec2.id WHERE sec2.name = 'TC_YueyuenHotel')",
-                    "refId": "A"
-                }
-            ],
-            "title": "總 IP 數量",
-            "type": "stat"
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
         },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
         {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "state=2 且 lastSeen 小於 24 小時的 IP（排除 DHCP Pool）",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "fixedColor": "green",
-                        "mode": "fixed"
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 4,
-                "w": 8,
-                "x": 8,
-                "y": 1
-            },
-            "id": 2,
-            "options": {
-                "colorMode": "background",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                },
-                "showPercentChange": false,
-                "textMode": "auto",
-                "wideLayout": true
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "format": "table",
-                    "rawSql": "SELECT COUNT(*) AS active\nFROM ipaddresses\nWHERE state = 2\n  AND lastSeen >= NOW() - INTERVAL 24 HOUR\n  AND (custom_DHCP_pool_range IS NULL OR custom_DHCP_pool_range != 1)\n  AND subnetId NOT IN (SELECT s2.id FROM subnets s2 JOIN sections sec2 ON s2.sectionId = sec2.id WHERE sec2.name = 'TC_YueyuenHotel')",
-                    "refId": "A"
-                }
-            ],
-            "title": "Active IP",
-            "type": "stat"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "custom_DHCP_pool_range = 1",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "fixedColor": "purple",
-                        "mode": "fixed"
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "purple",
-                                "value": null
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 4,
-                "w": 8,
-                "x": 16,
-                "y": 1
-            },
-            "id": 5,
-            "options": {
-                "colorMode": "background",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                },
-                "showPercentChange": false,
-                "textMode": "auto",
-                "wideLayout": true
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "format": "table",
-                    "rawSql": "SELECT COUNT(*) AS dhcp_pool FROM ipaddresses WHERE custom_DHCP_pool_range = 1\n  AND subnetId NOT IN (SELECT s2.id FROM subnets s2 JOIN sections sec2 ON s2.sectionId = sec2.id WHERE sec2.name = 'TC_YueyuenHotel')",
-                    "refId": "A"
-                }
-            ],
-            "title": "DHCP Pool IP",
-            "type": "stat"
-        },
-        {
-            "collapsed": false,
-            "gridPos": {
-                "h": 1,
-                "w": 24,
-                "x": 0,
-                "y": 5
-            },
-            "id": 101,
-            "title": "📈 IP 狀態分佈",
-            "type": "row"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "各站點的啟用網段數量，依分類堆疊顯示",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "mode": "palette-classic"
-                    },
-                    "custom": {
-                        "axisBorderShow": false,
-                        "axisCenteredZero": false,
-                        "axisColorMode": "text",
-                        "axisLabel": "",
-                        "axisPlacement": "auto",
-                        "fillOpacity": 80,
-                        "gradientMode": "scheme",
-                        "hideFrom": {
-                            "legend": false,
-                            "tooltip": false,
-                            "viz": false
-                        },
-                        "lineWidth": 1,
-                        "scaleDistribution": {
-                            "type": "linear"
-                        },
-                        "thresholdsStyle": {
-                            "mode": "off"
-                        }
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            }
-                        ]
-                    }
-                },
-                "overrides": [
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Server"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "blue",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "IIOT"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "orange",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "OA"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "green",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Voice"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "light-blue",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Guest"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "super-light-yellow",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "NET"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "semi-dark-orange",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Others"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "semi-dark-purple",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Total"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "transparent",
-                                    "mode": "fixed"
-                                }
-                            },
-                            {
-                                "id": "custom.fillOpacity",
-                                "value": 0
-                            },
-                            {
-                                "id": "custom.lineWidth",
-                                "value": 0
-                            },
-                            {
-                                "id": "custom.axisPlacement",
-                                "value": "right"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "gridPos": {
-                "h": 10,
-                "w": 24,
-                "x": 0,
-                "y": 6
-            },
-            "id": 11,
-            "options": {
-                "barRadius": 0,
-                "barWidth": 0.7,
-                "fullHighlight": false,
-                "groupWidth": 0.7,
-                "legend": {
-                    "calcs": [],
-                    "displayMode": "hidden",
-                    "placement": "bottom",
-                    "showLegend": false
-                },
-                "orientation": "horizontal",
-                "showValue": "auto",
-                "stacking": "normal",
-                "tooltip": {
-                    "mode": "multi",
-                    "sort": "desc"
-                },
-                "xTickLabelRotation": 0,
-                "xTickLabelSpacing": 0
-            },
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "editorMode": "code",
-                    "format": "table",
-                    "rawQuery": true,
-                    "rawSql": "SELECT\n  CASE\n    WHEN sec.name IN ('CH_HQ2','CH_HQ2_DMZ','CH_HQ2_IOT') THEN 'CH_HQ2'\n    WHEN sec.name IN ('CH_PGT','CH_PGT_IOT') THEN 'CH_PGT'\n    WHEN sec.name IN ('TC_HQ','TC_HQ_DMZ','TC-HQ_IOT') THEN 'TC_HQ'\n    WHEN sec.name IN ('TC_UAIC','TC_UAIC_IOT') THEN 'TC_UAIC'\n    WHEN sec.name IN ('TP_XinYi','TP_XinYi_DMZ') THEN 'TP_XinYi'\n    ELSE sec.name\n  END AS site,\n  COUNT(CASE WHEN s.description LIKE '%SRV%' OR s.description LIKE '%Server%' THEN 1 END) AS Server,\n  COUNT(CASE WHEN s.description LIKE '%IOT%' OR s.description LIKE '%IIOT%' THEN 1 END) AS IIOT,\n  COUNT(CASE WHEN s.description LIKE '%ACC%' OR s.description LIKE '%OA%' THEN 1 END) AS OA,\n  COUNT(CASE WHEN s.description LIKE '%VOICE%' THEN 1 END) AS Voice,\n  COUNT(CASE WHEN s.description LIKE '%Guest%' THEN 1 END) AS Guest,\n  COUNT(CASE WHEN s.description LIKE 'NET_%' THEN 1 END) AS NET,\n  COUNT(CASE WHEN s.description NOT LIKE '%SRV%' AND s.description NOT LIKE '%Server%' AND s.description NOT LIKE '%IOT%' AND s.description NOT LIKE '%IIOT%' AND s.description NOT LIKE '%ACC%' AND s.description NOT LIKE '%OA%' AND s.description NOT LIKE '%VOICE%' AND s.description NOT LIKE '%Guest%' AND s.description NOT LIKE 'NET_%' THEN 1 END) AS Others,\n  COUNT(s.id) AS Total\nFROM subnets s\nJOIN sections sec ON s.sectionId = sec.id\nWHERE s.isFolder = 0\n  AND CAST(s.mask AS UNSIGNED) < 31\n  AND CAST(s.mask AS UNSIGNED) > 0\n  AND sec.name != 'TC_YueyuenHotel'\n  AND s.id NOT IN (SELECT DISTINCT masterSubnetId FROM subnets WHERE masterSubnetId != 0)\nGROUP BY site\nORDER BY SUM(POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2) DESC",
-                    "refId": "A"
-                }
-            ],
-            "title": "各站點啟用網段數",
-            "type": "barchart"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "各 Section 的 IP 總量分佈，依 Subnet Description 分類堆疊顯示",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "mode": "palette-classic"
-                    },
-                    "custom": {
-                        "axisBorderShow": false,
-                        "axisCenteredZero": false,
-                        "axisColorMode": "text",
-                        "axisLabel": "",
-                        "axisPlacement": "auto",
-                        "fillOpacity": 80,
-                        "gradientMode": "scheme",
-                        "hideFrom": {
-                            "legend": false,
-                            "tooltip": false,
-                            "viz": false
-                        },
-                        "lineWidth": 1,
-                        "scaleDistribution": {
-                            "type": "linear"
-                        },
-                        "thresholdsStyle": {
-                            "mode": "off"
-                        }
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            }
-                        ]
-                    }
-                },
-                "overrides": [
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Server"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "blue",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "IIOT"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "orange",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "OA"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "green",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Voice"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "light-blue",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Guest"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "super-light-yellow",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "NET"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "semi-dark-orange",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Others"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "semi-dark-purple",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Total"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "transparent",
-                                    "mode": "fixed"
-                                }
-                            },
-                            {
-                                "id": "custom.fillOpacity",
-                                "value": 0
-                            },
-                            {
-                                "id": "custom.lineWidth",
-                                "value": 0
-                            },
-                            {
-                                "id": "custom.axisPlacement",
-                                "value": "right"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "gridPos": {
-                "h": 10,
-                "w": 24,
-                "x": 0,
-                "y": 16
-            },
-            "id": 10,
-            "options": {
-                "barRadius": 0,
-                "barWidth": 0.7,
-                "fullHighlight": false,
-                "groupWidth": 0.7,
-                "legend": {
-                    "calcs": [],
-                    "displayMode": "list",
-                    "placement": "right",
-                    "showLegend": true
-                },
-                "orientation": "horizontal",
-                "showValue": "auto",
-                "stacking": "normal",
-                "tooltip": {
-                    "mode": "multi",
-                    "sort": "desc"
-                },
-                "xTickLabelRotation": 0,
-                "xTickLabelSpacing": 0
-            },
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "editorMode": "code",
-                    "format": "table",
-                    "rawQuery": true,
-                    "rawSql": "SELECT\n  CASE\n    WHEN sec.name IN ('CH_HQ2','CH_HQ2_DMZ','CH_HQ2_IOT') THEN 'CH_HQ2'\n    WHEN sec.name IN ('CH_PGT','CH_PGT_IOT') THEN 'CH_PGT'\n    WHEN sec.name IN ('TC_HQ','TC_HQ_DMZ','TC-HQ_IOT') THEN 'TC_HQ'\n    WHEN sec.name IN ('TC_UAIC','TC_UAIC_IOT') THEN 'TC_UAIC'\n    WHEN sec.name IN ('TP_XinYi','TP_XinYi_DMZ') THEN 'TP_XinYi'\n    ELSE sec.name\n  END AS site,\n  SUM(CASE WHEN s.description LIKE '%SRV%' OR s.description LIKE '%Server%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS Server,\n  SUM(CASE WHEN s.description LIKE '%IOT%' OR s.description LIKE '%IIOT%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS IIOT,\n  SUM(CASE WHEN s.description LIKE '%ACC%' OR s.description LIKE '%OA%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS OA,\n  SUM(CASE WHEN s.description LIKE '%VOICE%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS Voice,\n  SUM(CASE WHEN s.description LIKE '%Guest%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS Guest,\n  SUM(CASE WHEN s.description LIKE 'NET_%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS NET,\n  SUM(CASE WHEN s.description NOT LIKE '%SRV%' AND s.description NOT LIKE '%Server%' AND s.description NOT LIKE '%IOT%' AND s.description NOT LIKE '%IIOT%' AND s.description NOT LIKE '%ACC%' AND s.description NOT LIKE '%OA%' AND s.description NOT LIKE '%VOICE%' AND s.description NOT LIKE '%Guest%' AND s.description NOT LIKE 'NET_%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS Others,\n  SUM(POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2) AS Total\nFROM subnets s\nJOIN sections sec ON s.sectionId = sec.id\nWHERE s.isFolder = 0\n  AND CAST(s.mask AS UNSIGNED) < 31\n  AND CAST(s.mask AS UNSIGNED) > 0\n  AND sec.name != 'TC_YueyuenHotel'\n  AND s.id NOT IN (SELECT DISTINCT masterSubnetId FROM subnets WHERE masterSubnetId != 0)\nGROUP BY site\nORDER BY SUM(POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2) DESC",
-                    "refId": "A"
-                }
-            ],
-            "title": "各 Section IP 分類分佈（網段總量）",
-            "type": "barchart"
-        },
-        {
-            "collapsed": false,
-            "gridPos": {
-                "h": 1,
-                "w": 24,
-                "x": 0,
-                "y": 26
-            },
-            "id": 102,
-            "title": "🔄 最近 24 小時靜態 IP 異動（MAC / Hostname / Owner）",
-            "type": "row"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "選定時間範圍內的 IP 異動總筆數",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "mode": "thresholds"
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "yellow",
-                                "value": 50
-                            },
-                            {
-                                "color": "orange",
-                                "value": 200
-                            },
-                            {
-                                "color": "red",
-                                "value": 500
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 4,
-                "w": 6,
-                "x": 0,
-                "y": 27
-            },
-            "id": 50,
-            "options": {
-                "colorMode": "background",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": true
-                },
-                "showPercentChange": false,
-                "textMode": "value",
-                "wideLayout": true
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "format": "table",
-                    "rawSql": "SELECT COUNT(*) AS total_changes\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)",
-                    "refId": "A"
-                }
-            ],
-            "title": "異動總筆數",
-            "type": "stat"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "欄位修改 (MAC/Hostname/Owner 變更)",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "fixedColor": "blue",
-                        "mode": "fixed"
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 4,
-                "w": 6,
-                "x": 6,
-                "y": 27
-            },
-            "id": 51,
-            "options": {
-                "colorMode": "background",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": true
-                },
-                "showPercentChange": false,
-                "textMode": "value",
-                "wideLayout": true
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "format": "table",
-                    "rawSql": "SELECT COUNT(*) AS modify_count\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND changed_field = 'MODIFY'",
-                    "refId": "A"
-                }
-            ],
-            "title": "MODIFY",
-            "type": "stat"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "IP 刪除紀錄",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "fixedColor": "red",
-                        "mode": "fixed"
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 4,
-                "w": 6,
-                "x": 12,
-                "y": 27
-            },
-            "id": 52,
-            "options": {
-                "colorMode": "background",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": true
-                },
-                "showPercentChange": false,
-                "textMode": "value",
-                "wideLayout": true
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "format": "table",
-                    "rawSql": "SELECT COUNT(*) AS deleted_count\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND changed_field = 'DELETED'",
-                    "refId": "A"
-                }
-            ],
-            "title": "DELETED",
-            "type": "stat"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "不同的 changed_by 操作者人數",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "fixedColor": "purple",
-                        "mode": "fixed"
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 4,
-                "w": 6,
-                "x": 18,
-                "y": 27
-            },
-            "id": 53,
-            "options": {
-                "colorMode": "background",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": true
-                },
-                "showPercentChange": false,
-                "textMode": "value",
-                "wideLayout": true
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "format": "table",
-                    "rawSql": "SELECT COUNT(DISTINCT changed_by) AS operators\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND changed_by IS NOT NULL\n  AND changed_by != ''",
-                    "refId": "A"
-                }
-            ],
-            "title": "活躍操作者",
-            "type": "stat"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "按小時聚合的 IP 異動數量，區分 MODIFY / DELETED / ADD",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "mode": "palette-classic"
-                    },
-                    "custom": {
-                        "axisBorderShow": false,
-                        "axisCenteredZero": false,
-                        "axisColorMode": "text",
-                        "axisLabel": "筆數",
-                        "axisPlacement": "auto",
-                        "barAlignment": 0,
-                        "drawStyle": "bars",
-                        "fillOpacity": 20,
-                        "gradientMode": "none",
-                        "hideFrom": {
-                            "legend": false,
-                            "tooltip": false,
-                            "viz": false
-                        },
-                        "insertNulls": false,
-                        "lineInterpolation": "linear",
-                        "lineWidth": 2,
-                        "pointSize": 5,
-                        "scaleDistribution": {
-                            "type": "linear"
-                        },
-                        "showPoints": "auto",
-                        "spanNulls": false,
-                        "stacking": {
-                            "group": "A",
-                            "mode": "normal"
-                        },
-                        "thresholdsStyle": {
-                            "mode": "off"
-                        }
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
-                            }
-                        ]
-                    }
-                },
-                "overrides": [
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "DELETED"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "red",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "MODIFY"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "blue",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "ADD"
-                        },
-                        "properties": [
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "green",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "gridPos": {
-                "h": 10,
-                "w": 12,
-                "x": 0,
-                "y": 31
-            },
-            "id": 54,
-            "options": {
-                "legend": {
-                    "calcs": [
-                        "sum"
-                    ],
-                    "displayMode": "list",
-                    "placement": "bottom",
-                    "showLegend": true
-                },
-                "tooltip": {
-                    "mode": "multi",
-                    "sort": "desc"
-                }
-            },
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "editorMode": "code",
-                    "format": "time_series",
-                    "rawQuery": true,
-                    "rawSql": "SELECT\n  $__timeGroupAlias(detected_at, 1h),\n  changed_field AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\nGROUP BY 1, changed_field\nORDER BY 1 ASC",
-                    "refId": "A",
-                    "sql": {
-                        "columns": [
-                            {
-                                "parameters": [],
-                                "type": "function"
-                            }
-                        ],
-                        "groupBy": [
-                            {
-                                "property": {
-                                    "type": "string"
-                                },
-                                "type": "groupBy"
-                            }
-                        ],
-                        "limit": 50
-                    }
-                }
-            ],
-            "title": "每小時異動量",
-            "type": "timeseries"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "按日聚合的 IP 異動量趨勢",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "fixedColor": "semi-dark-orange",
-                        "mode": "fixed"
-                    },
-                    "custom": {
-                        "axisBorderShow": false,
-                        "axisCenteredZero": false,
-                        "axisColorMode": "text",
-                        "axisLabel": "筆數",
-                        "axisPlacement": "auto",
-                        "barAlignment": 0,
-                        "drawStyle": "line",
-                        "fillOpacity": 30,
-                        "gradientMode": "opacity",
-                        "hideFrom": {
-                            "legend": false,
-                            "tooltip": false,
-                            "viz": false
-                        },
-                        "insertNulls": false,
-                        "lineInterpolation": "linear",
-                        "lineWidth": 2,
-                        "pointSize": 6,
-                        "scaleDistribution": {
-                            "type": "linear"
-                        },
-                        "showPoints": "always",
-                        "spanNulls": false,
-                        "stacking": {
-                            "group": "A",
-                            "mode": "none"
-                        },
-                        "thresholdsStyle": {
-                            "mode": "off"
-                        }
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "yellow",
-                                "value": 50
-                            },
-                            {
-                                "color": "red",
-                                "value": 100
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 10,
-                "w": 12,
-                "x": 12,
-                "y": 31
-            },
-            "id": 55,
-            "options": {
-                "legend": {
-                    "calcs": [
-                        "sum",
-                        "mean",
-                        "max"
-                    ],
-                    "displayMode": "list",
-                    "placement": "bottom",
-                    "showLegend": true
-                },
-                "tooltip": {
-                    "mode": "single",
-                    "sort": "none"
-                }
-            },
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "format": "time_series",
-                    "rawSql": "SELECT\n  $__timeGroupAlias(detected_at, 1d),\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE detected_at >= NOW() - INTERVAL 30 DAY\nGROUP BY 1\nORDER BY 1 ASC",
-                    "refId": "A"
-                }
-            ],
-            "title": "每日異動趨勢",
-            "type": "timeseries"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "各異動類型 (ADD / MODIFY / DELETED) 的數量統計",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "mode": "continuous-BlYlRd"
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 8,
-                "w": 8,
-                "x": 0,
-                "y": 41
-            },
-            "id": 56,
-            "options": {
-                "displayMode": "gradient",
-                "maxVizHeight": 300,
-                "minVizHeight": 10,
-                "minVizWidth": 8,
-                "namePlacement": "auto",
-                "orientation": "horizontal",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "/^value$/",
-                    "values": true
-                },
-                "showUnfilled": true,
-                "sizing": "auto",
-                "valueMode": "color"
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "editorMode": "code",
-                    "format": "table",
-                    "rawQuery": true,
-                    "rawSql": "SELECT\n  changed_field AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE detected_at >= NOW() - INTERVAL 24 HOUR\nGROUP BY changed_field\nORDER BY COUNT(*) DESC",
-                    "refId": "A"
-                }
-            ],
-            "title": "變更類型分佈",
-            "type": "bargauge"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "各操作者 (changed_by) 的異動筆數排行",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "mode": "continuous-BlYlRd"
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 8,
-                "w": 8,
-                "x": 8,
-                "y": 41
-            },
-            "id": 57,
-            "options": {
-                "displayMode": "gradient",
-                "maxVizHeight": 300,
-                "minVizHeight": 10,
-                "minVizWidth": 8,
-                "namePlacement": "auto",
-                "orientation": "horizontal",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "/^value$/",
-                    "values": true
-                },
-                "showUnfilled": true,
-                "sizing": "auto",
-                "valueMode": "color"
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "editorMode": "code",
-                    "format": "table",
-                    "rawQuery": true,
-                    "rawSql": "SELECT\n  IFNULL(changed_by, '(system)') AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE detected_at >= NOW() - INTERVAL 24 HOUR\nGROUP BY changed_by\nORDER BY COUNT(*) DESC",
-                    "refId": "A"
-                }
-            ],
-            "title": "操作者排行",
-            "type": "bargauge"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "各 Section 的 IP 異動數量排行",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "mode": "continuous-BlYlRd"
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 8,
-                "w": 8,
-                "x": 16,
-                "y": 41
-            },
-            "id": 58,
-            "options": {
-                "displayMode": "gradient",
-                "maxVizHeight": 300,
-                "minVizHeight": 10,
-                "minVizWidth": 8,
-                "namePlacement": "auto",
-                "orientation": "horizontal",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "/^value$/",
-                    "values": true
-                },
-                "showUnfilled": true,
-                "sizing": "auto",
-                "valueMode": "color"
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "editorMode": "code",
-                    "format": "table",
-                    "rawQuery": true,
-                    "rawSql": "SELECT\n  IFNULL(section_name, '(unknown)') AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE detected_at >= NOW() - INTERVAL 24 HOUR\nGROUP BY section_name\nORDER BY COUNT(*) DESC\nLIMIT 10",
-                    "refId": "A"
-                }
-            ],
-            "title": "Section 異動熱度 TOP 10",
-            "type": "bargauge"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "被修改最多次的 IP 位址，可能是問題設備",
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "mode": "thresholds"
-                    },
-                    "custom": {
-                        "align": "auto",
-                        "cellOptions": {
-                            "type": "auto"
-                        },
-                        "inspect": false
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "yellow",
-                                "value": 3
-                            },
-                            {
-                                "color": "orange",
-                                "value": 5
-                            },
-                            {
-                                "color": "red",
-                                "value": 10
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 9,
-                "w": 8,
-                "x": 0,
-                "y": 49
-            },
-            "id": 59,
-            "options": {
-                "cellHeight": "sm",
-                "footer": {
-                    "countRows": false,
-                    "fields": "",
-                    "reducer": [
-                        "sum"
-                    ],
-                    "show": false
-                },
-                "showHeader": true
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "editorMode": "code",
-                    "format": "table",
-                    "rawQuery": true,
-                    "rawSql": "SELECT\n  ip_display AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND LOWER(subnet_desc) NOT LIKE '%guest%'\nGROUP BY ip_addr, ip_display\nHAVING COUNT(*) > 1\nORDER BY COUNT(*) DESC\nLIMIT 5\n",
-                    "refId": "A",
-                    "sql": {
-                        "columns": [
-                            {
-                                "parameters": [],
-                                "type": "function"
-                            }
-                        ],
-                        "groupBy": [
-                            {
-                                "property": {
-                                    "type": "string"
-                                },
-                                "type": "groupBy"
-                            }
-                        ],
-                        "limit": 50
-                    }
-                }
-            ],
-            "title": "高頻異動 IP TOP 5",
-            "transformations": [
-                {
-                    "id": "organize",
-                    "options": {
-                        "excludeByName": {},
-                        "includeByName": {},
-                        "indexByName": {},
-                        "renameByName": {
-                            "metric": "IPs",
-                            "value": "change_times"
-                        }
-                    }
-                }
-            ],
-            "type": "table"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "各子網路的異動統計：MODIFY / DELETED / ADD 筆數",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {
-                        "align": "auto",
-                        "cellOptions": {
-                            "type": "auto"
-                        },
-                        "filterable": true,
-                        "inspect": false
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
-                            }
-                        ]
-                    }
-                },
-                "overrides": [
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Total"
-                        },
-                        "properties": [
-                            {
-                                "id": "custom.cellOptions",
-                                "value": {
-                                    "type": "color-background"
-                                }
-                            },
-                            {
-                                "id": "thresholds",
-                                "value": {
-                                    "mode": "absolute",
-                                    "steps": [
-                                        {
-                                            "color": "transparent",
-                                            "value": null
-                                        },
-                                        {
-                                            "color": "yellow",
-                                            "value": 5
-                                        },
-                                        {
-                                            "color": "orange",
-                                            "value": 10
-                                        },
-                                        {
-                                            "color": "red",
-                                            "value": 20
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Del"
-                        },
-                        "properties": [
-                            {
-                                "id": "custom.cellOptions",
-                                "value": {
-                                    "type": "color-text"
-                                }
-                            },
-                            {
-                                "id": "thresholds",
-                                "value": {
-                                    "mode": "absolute",
-                                    "steps": [
-                                        {
-                                            "color": "text",
-                                            "value": null
-                                        },
-                                        {
-                                            "color": "red",
-                                            "value": 1
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "gridPos": {
-                "h": 9,
-                "w": 16,
-                "x": 8,
-                "y": 49
-            },
-            "id": 61,
-            "options": {
-                "cellHeight": "sm",
-                "enablePagination": true,
-                "footer": {
-                    "countRows": true,
-                    "enablePagination": true,
-                    "fields": "",
-                    "reducer": [
-                        "count"
-                    ],
-                    "show": false
-                },
-                "showHeader": true,
-                "sortBy": [
-                    {
-                        "desc": true,
-                        "displayName": "Total"
-                    }
-                ]
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "editorMode": "code",
-                    "format": "table",
-                    "rawQuery": true,
-                    "rawSql": "SELECT\n  subnet_cidr AS 'Subnet',\n  IFNULL(subnet_desc, '') AS 'Desc',\n  section_name AS 'Section',\n  SUM(changed_field = 'MODIFY') AS 'Mod',\n  SUM(changed_field = 'DELETED') AS 'Del',\n  COUNT(*) AS 'Total'\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND LOWER(IFNULL(subnet_desc, '')) NOT LIKE '%guest%'\n  AND IFNULL(section_name, '') != 'TC_YueyuenHotel'\nGROUP BY subnet_cidr, subnet_desc, section_name\nORDER BY COUNT(*) DESC\nLIMIT 30\n",
-                    "refId": "A",
-                    "sql": {
-                        "columns": [
-                            {
-                                "parameters": [],
-                                "type": "function"
-                            }
-                        ],
-                        "groupBy": [
-                            {
-                                "property": {
-                                    "type": "string"
-                                },
-                                "type": "groupBy"
-                            }
-                        ],
-                        "limit": 50
-                    }
-                }
-            ],
-            "title": "子網路異動摘要",
-            "type": "table"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "description": "偵測靜態 IP 的 MAC / Hostname / Owner 實際變更（非掃描觸發的 editDate 雜訊）",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {
-                        "align": "auto",
-                        "cellOptions": {
-                            "type": "auto"
-                        },
-                        "filterable": true,
-                        "inspect": false
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
-                            }
-                        ]
-                    }
-                },
-                "overrides": [
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Changed Field"
-                        },
-                        "properties": [
-                            {
-                                "id": "custom.width",
-                                "value": 130
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Old Value"
-                        },
-                        "properties": [
-                            {
-                                "id": "custom.cellOptions",
-                                "value": {
-                                    "type": "color-text"
-                                }
-                            },
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "red",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "New Value"
-                        },
-                        "properties": [
-                            {
-                                "id": "custom.cellOptions",
-                                "value": {
-                                    "type": "color-text"
-                                }
-                            },
-                            {
-                                "id": "color",
-                                "value": {
-                                    "fixedColor": "green",
-                                    "mode": "fixed"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "gridPos": {
-                "h": 9,
-                "w": 24,
-                "x": 0,
-                "y": 58
-            },
-            "id": 20,
-            "options": {
-                "cellHeight": "sm",
-                "enablePagination": true,
-                "footer": {
-                    "countRows": true,
-                    "enablePagination": true,
-                    "fields": "",
-                    "reducer": [
-                        "count"
-                    ],
-                    "show": false
-                },
-                "showHeader": true,
-                "sortBy": [
-                    {
-                        "desc": true,
-                        "displayName": "Detected"
-                    }
-                ]
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "format": "table",
-                    "rawSql": "SELECT\n  CONVERT_TZ(c.detected_at, '+08:00', '+00:00') AS 'Detected',\n  c.ip_display AS 'IP',\n  c.changed_field AS 'Changed Field',\n  c.old_value AS 'Old Value',\n  c.new_value AS 'New Value',\n  IFNULL(c.changed_by, '(unknown)') AS 'Changed By',\n  c.subnet_cidr AS 'Subnet',\n  c.subnet_desc AS 'Subnet Desc',\n  c.section_name AS 'Section'\nFROM grafana_ip_changes c\nWHERE c.detected_at >= NOW() - INTERVAL 24 HOUR\n  AND LOWER(c.subnet_desc) NOT LIKE '%guest%'\nORDER BY c.detected_at DESC\nLIMIT 200",
-                    "refId": "A"
-                }
-            ],
-            "title": "靜態 IP 欄位變更紀錄 (24hr)",
-            "type": "table"
-        },
-        {
-            "collapsed": false,
-            "gridPos": {
-                "h": 1,
-                "w": 24,
-                "x": 0,
-                "y": 67
-            },
-            "id": 103,
-            "panels": [],
-            "title": "🔴 高使用率網段（>80%）",
-            "type": "row"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "fixedColor": "red",
-                        "mode": "continuous-GrYlRd"
-                    },
-                    "mappings": [],
-                    "max": 100,
-                    "min": 0,
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "yellow",
-                                "value": 80
-                            },
-                            {
-                                "color": "red",
-                                "value": 90
-                            }
-                        ]
-                    },
-                    "unit": "percent"
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 8,
-                "w": 12,
-                "x": 0,
-                "y": 68
-            },
-            "id": 30,
-            "options": {
-                "displayMode": "lcd",
-                "maxVizHeight": 300,
-                "minVizHeight": 10,
-                "minVizWidth": 0,
-                "namePlacement": "auto",
-                "orientation": "horizontal",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "/^usage_pct$/",
-                    "values": true
-                },
-                "showUnfilled": true,
-                "sizing": "auto",
-                "valueMode": "color"
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "editorMode": "code",
-                    "format": "table",
-                    "rawQuery": true,
-                    "rawSql": "SELECT\n  CONCAT(INET_NTOA(s.subnet), '/', s.mask) AS subnet,\n  ROUND(\n    SUM(CASE WHEN a.lastSeen IS NOT NULL AND a.lastSeen >= NOW() - INTERVAL 24 HOUR THEN 1 ELSE 0 END) / (POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2) * 100, 1\n  ) AS usage_pct\nFROM subnets s\nLEFT JOIN ipaddresses a ON s.id = a.subnetId\nWHERE s.isFolder = 0\n  AND CAST(s.mask AS UNSIGNED) < 31\n  AND CAST(s.mask AS UNSIGNED) > 0\n  AND s.sectionId NOT IN (SELECT id FROM sections WHERE name = 'TC_YueyuenHotel')\nGROUP BY s.id, s.subnet, s.mask\nHAVING usage_pct > 80\nORDER BY usage_pct DESC\nLIMIT 5",
-                    "refId": "A",
-                    "sql": {
-                        "columns": [
-                            {
-                                "parameters": [],
-                                "type": "function"
-                            }
-                        ],
-                        "groupBy": [
-                            {
-                                "property": {
-                                    "type": "string"
-                                },
-                                "type": "groupBy"
-                            }
-                        ],
-                        "limit": 50
-                    }
-                }
-            ],
-            "title": "高使用率網段 TOP 5",
-            "type": "bargauge"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {
-                        "align": "auto",
-                        "cellOptions": {
-                            "type": "auto"
-                        },
-                        "filterable": true,
-                        "inspect": false
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
-                            }
-                        ]
-                    }
-                },
-                "overrides": [
-                    {
-                        "matcher": {
-                            "id": "byName",
-                            "options": "Usage %"
-                        },
-                        "properties": [
-                            {
-                                "id": "custom.cellOptions",
-                                "value": {
-                                    "type": "color-background"
-                                }
-                            },
-                            {
-                                "id": "thresholds",
-                                "value": {
-                                    "mode": "absolute",
-                                    "steps": [
-                                        {
-                                            "color": "yellow",
-                                            "value": null
-                                        },
-                                        {
-                                            "color": "orange",
-                                            "value": 90
-                                        },
-                                        {
-                                            "color": "red",
-                                            "value": 95
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "gridPos": {
-                "h": 8,
-                "w": 12,
-                "x": 12,
-                "y": 68
-            },
-            "id": 31,
-            "options": {
-                "cellHeight": "sm",
-                "enablePagination": true,
-                "footer": {
-                    "countRows": true,
-                    "fields": "",
-                    "reducer": [
-                        "count"
-                    ],
-                    "show": true
-                },
-                "showHeader": true,
-                "sortBy": [
-                    {
-                        "desc": true,
-                        "displayName": "Usage %"
-                    }
-                ]
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "format": "table",
-                    "rawSql": "SELECT\n  CONCAT(INET_NTOA(s.subnet), '/', s.mask) AS 'Subnet CIDR',\n  s.description AS 'Description',\n  sec.name AS 'Section',\n  SUM(CASE WHEN a.lastSeen IS NOT NULL AND a.lastSeen >= NOW() - INTERVAL 24 HOUR THEN 1 ELSE 0 END) AS 'Used IPs',\n  CAST(POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 AS UNSIGNED) AS 'Total Hosts',\n  CAST(POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 AS UNSIGNED) - SUM(CASE WHEN a.lastSeen IS NOT NULL AND a.lastSeen >= NOW() - INTERVAL 24 HOUR THEN 1 ELSE 0 END) AS 'Free IPs',\n  ROUND(\n    SUM(CASE WHEN a.lastSeen IS NOT NULL AND a.lastSeen >= NOW() - INTERVAL 24 HOUR THEN 1 ELSE 0 END) / (POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2) * 100, 1\n  ) AS 'Usage %'\nFROM subnets s\nLEFT JOIN ipaddresses a ON s.id = a.subnetId\nLEFT JOIN sections sec ON s.sectionId = sec.id\nWHERE s.isFolder = 0\n  AND CAST(s.mask AS UNSIGNED) < 31\n  AND CAST(s.mask AS UNSIGNED) > 0\n  AND sec.name != 'TC_YueyuenHotel'\nGROUP BY s.id, s.subnet, s.mask, s.description, sec.name\nHAVING `Usage %` > 80\nORDER BY `Usage %` DESC",
-                    "refId": "A"
-                }
-            ],
-            "title": "高使用率網段明細",
-            "type": "table"
-        },
-        {
-            "datasource": {
-                "type": "mysql",
-                "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-            },
-            "fieldConfig": {
-                "defaults": {
-                    "color": {
-                        "mode": "thresholds"
-                    },
-                    "custom": {
-                        "align": "auto",
-                        "cellOptions": {
-                            "type": "auto"
-                        },
-                        "inspect": false
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 8,
-                "w": 24,
-                "x": 0,
-                "y": 76
-            },
-            "id": 32,
-            "options": {
-                "cellHeight": "sm",
-                "enablePagination": true,
-                "footer": {
-                    "countRows": true,
-                    "fields": "",
-                    "reducer": [
-                        "count"
-                    ],
-                    "show": true
-                },
-                "showHeader": true,
-                "sortBy": [
-                    {
-                        "desc": false,
-                        "displayName": "Site"
-                    }
-                ]
-            },
-            "pluginVersion": "10.4.19+security-01",
-            "targets": [
-                {
-                    "datasource": {
-                        "type": "mysql",
-                        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
-                    },
-                    "format": "table",
-                    "rawSql": "SELECT\n  CASE\n    WHEN sec.name IN ('CH_HQ2','CH_HQ2_DMZ','CH_HQ2_IOT') THEN 'CH_HQ2'\n    WHEN sec.name IN ('CH_PGT','CH_PGT_IOT') THEN 'CH_PGT'\n    WHEN sec.name IN ('TC_HQ','TC_HQ_DMZ','TC-HQ_IOT') THEN 'TC_HQ'\n    WHEN sec.name IN ('TC_UAIC','TC_UAIC_IOT') THEN 'TC_UAIC'\n    WHEN sec.name IN ('TP_XinYi','TP_XinYi_DMZ') THEN 'TP_XinYi'\n    ELSE sec.name\n  END AS 'Site',\n  CONCAT(INET_NTOA(s.subnet), '/', s.mask) AS 'Subnet CIDR',\n  IFNULL(s.description, '(空值)') AS 'Description',\n  sec.name AS 'Section'\nFROM subnets s\nJOIN sections sec ON s.sectionId = sec.id\nWHERE s.isFolder = 0\n  AND CAST(s.mask AS UNSIGNED) < 31\n  AND CAST(s.mask AS UNSIGNED) > 0\n  AND sec.name != 'TC_YueyuenHotel'\n  AND s.id NOT IN (SELECT DISTINCT masterSubnetId FROM subnets WHERE masterSubnetId != 0)\n  AND s.description NOT LIKE '%SRV%'\n  AND s.description NOT LIKE '%Server%'\n  AND s.description NOT LIKE '%IOT%'\n  AND s.description NOT LIKE '%IIOT%'\n  AND s.description NOT LIKE '%ACC%'\n  AND s.description NOT LIKE '%OA%'\n  AND s.description NOT LIKE '%VOICE%'\n  AND s.description NOT LIKE '%Guest%'\n  AND s.description NOT LIKE 'NET_%'\nORDER BY site, s.description",
-                    "refId": "A"
-                }
-            ],
-            "title": "Undefine Subnet",
-            "type": "table"
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS total FROM ipaddresses\nWHERE 1=1\n  AND subnetId NOT IN (SELECT s2.id FROM subnets s2 JOIN sections sec2 ON s2.sectionId = sec2.id WHERE sec2.name = 'TC_YueyuenHotel')",
+          "refId": "A"
         }
-    ],
-    "refresh": "5m",
-    "schemaVersion": 39,
-    "tags": [
-        "phpIPAM",
-        "daily",
-        "巡檢"
-    ],
-    "templating": {
-        "list": []
+      ],
+      "title": "總 IP 數量",
+      "type": "stat"
     },
-    "time": {
-        "from": "now-24h",
-        "to": "now"
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "state=2 且 lastSeen 小於 24 小時的 IP（排除 DHCP Pool）",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS active\nFROM ipaddresses\nWHERE state = 2\n  AND lastSeen >= NOW() - INTERVAL 24 HOUR\n  AND (custom_DHCP_pool_range IS NULL OR custom_DHCP_pool_range != 1)\n  AND subnetId NOT IN (SELECT s2.id FROM subnets s2 JOIN sections sec2 ON s2.sectionId = sec2.id WHERE sec2.name = 'TC_YueyuenHotel')",
+          "refId": "A"
+        }
+      ],
+      "title": "Active IP",
+      "type": "stat"
     },
-    "timepicker": {},
-    "timezone": "browser",
-    "title": "phpIPAM 日巡檢 Dashboard",
-    "uid": "bfeykufe9qlfkf",
-    "version": 7,
-    "weekStart": ""
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "custom_DHCP_pool_range = 1",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "purple",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "purple",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS dhcp_pool FROM ipaddresses WHERE custom_DHCP_pool_range = 1\n  AND subnetId NOT IN (SELECT s2.id FROM subnets s2 JOIN sections sec2 ON s2.sectionId = sec2.id WHERE sec2.name = 'TC_YueyuenHotel')",
+          "refId": "A"
+        }
+      ],
+      "title": "DHCP Pool IP",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 101,
+      "title": "📈 IP 狀態分佈",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "各站點的啟用網段數量，依分類堆疊顯示",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Server"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "IIOT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "OA"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Voice"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Guest"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "NET"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Others"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "transparent",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 11,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.7,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "hidden",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "normal",
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CASE\n    WHEN sec.name IN ('CH_HQ2','CH_HQ2_DMZ','CH_HQ2_IOT') THEN 'CH_HQ2'\n    WHEN sec.name IN ('CH_PGT','CH_PGT_IOT') THEN 'CH_PGT'\n    WHEN sec.name IN ('TC_HQ','TC_HQ_DMZ','TC-HQ_IOT') THEN 'TC_HQ'\n    WHEN sec.name IN ('TC_UAIC','TC_UAIC_IOT') THEN 'TC_UAIC'\n    WHEN sec.name IN ('TP_XinYi','TP_XinYi_DMZ') THEN 'TP_XinYi'\n    ELSE sec.name\n  END AS site,\n  COUNT(CASE WHEN s.description LIKE '%SRV%' OR s.description LIKE '%Server%' THEN 1 END) AS Server,\n  COUNT(CASE WHEN s.description LIKE '%IOT%' OR s.description LIKE '%IIOT%' THEN 1 END) AS IIOT,\n  COUNT(CASE WHEN s.description LIKE '%ACC%' OR s.description LIKE '%OA%' THEN 1 END) AS OA,\n  COUNT(CASE WHEN s.description LIKE '%VOICE%' THEN 1 END) AS Voice,\n  COUNT(CASE WHEN s.description LIKE '%Guest%' THEN 1 END) AS Guest,\n  COUNT(CASE WHEN s.description LIKE 'NET_%' THEN 1 END) AS NET,\n  COUNT(CASE WHEN s.description NOT LIKE '%SRV%' AND s.description NOT LIKE '%Server%' AND s.description NOT LIKE '%IOT%' AND s.description NOT LIKE '%IIOT%' AND s.description NOT LIKE '%ACC%' AND s.description NOT LIKE '%OA%' AND s.description NOT LIKE '%VOICE%' AND s.description NOT LIKE '%Guest%' AND s.description NOT LIKE 'NET_%' THEN 1 END) AS Others,\n  COUNT(s.id) AS Total\nFROM subnets s\nJOIN sections sec ON s.sectionId = sec.id\nWHERE s.isFolder = 0\n  AND CAST(s.mask AS UNSIGNED) < 31\n  AND CAST(s.mask AS UNSIGNED) > 0\n  AND sec.name != 'TC_YueyuenHotel'\n  AND s.id NOT IN (SELECT DISTINCT masterSubnetId FROM subnets WHERE masterSubnetId != 0)\nGROUP BY site\nORDER BY SUM(POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2) DESC",
+          "refId": "A"
+        }
+      ],
+      "title": "各站點啟用網段數",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "各 Section 的 IP 總量分佈，依 Subnet Description 分類堆疊顯示",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Server"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "IIOT"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "OA"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Voice"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Guest"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "NET"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Others"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "transparent",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 0
+              },
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 10,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.7,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "normal",
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CASE\n    WHEN sec.name IN ('CH_HQ2','CH_HQ2_DMZ','CH_HQ2_IOT') THEN 'CH_HQ2'\n    WHEN sec.name IN ('CH_PGT','CH_PGT_IOT') THEN 'CH_PGT'\n    WHEN sec.name IN ('TC_HQ','TC_HQ_DMZ','TC-HQ_IOT') THEN 'TC_HQ'\n    WHEN sec.name IN ('TC_UAIC','TC_UAIC_IOT') THEN 'TC_UAIC'\n    WHEN sec.name IN ('TP_XinYi','TP_XinYi_DMZ') THEN 'TP_XinYi'\n    ELSE sec.name\n  END AS site,\n  SUM(CASE WHEN s.description LIKE '%SRV%' OR s.description LIKE '%Server%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS Server,\n  SUM(CASE WHEN s.description LIKE '%IOT%' OR s.description LIKE '%IIOT%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS IIOT,\n  SUM(CASE WHEN s.description LIKE '%ACC%' OR s.description LIKE '%OA%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS OA,\n  SUM(CASE WHEN s.description LIKE '%VOICE%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS Voice,\n  SUM(CASE WHEN s.description LIKE '%Guest%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS Guest,\n  SUM(CASE WHEN s.description LIKE 'NET_%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS NET,\n  SUM(CASE WHEN s.description NOT LIKE '%SRV%' AND s.description NOT LIKE '%Server%' AND s.description NOT LIKE '%IOT%' AND s.description NOT LIKE '%IIOT%' AND s.description NOT LIKE '%ACC%' AND s.description NOT LIKE '%OA%' AND s.description NOT LIKE '%VOICE%' AND s.description NOT LIKE '%Guest%' AND s.description NOT LIKE 'NET_%' THEN POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 ELSE 0 END) AS Others,\n  SUM(POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2) AS Total\nFROM subnets s\nJOIN sections sec ON s.sectionId = sec.id\nWHERE s.isFolder = 0\n  AND CAST(s.mask AS UNSIGNED) < 31\n  AND CAST(s.mask AS UNSIGNED) > 0\n  AND sec.name != 'TC_YueyuenHotel'\n  AND s.id NOT IN (SELECT DISTINCT masterSubnetId FROM subnets WHERE masterSubnetId != 0)\nGROUP BY site\nORDER BY SUM(POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2) DESC",
+          "refId": "A"
+        }
+      ],
+      "title": "各 Section IP 分類分佈（網段總量）",
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "NOT eq \"SRV\" \"NET\" \"OA\" \"VOICE\" \"IOT\" \"GUEST\"",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 26
+      },
+      "id": 32,
+      "options": {
+        "cellHeight": "sm",
+        "enablePagination": true,
+        "footer": {
+          "countRows": true,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "count"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Site"
+          }
+        ]
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CASE\n    WHEN sec.name IN ('CH_HQ2','CH_HQ2_DMZ','CH_HQ2_IOT') THEN 'CH_HQ2'\n    WHEN sec.name IN ('CH_PGT','CH_PGT_IOT') THEN 'CH_PGT'\n    WHEN sec.name IN ('TC_HQ','TC_HQ_DMZ','TC-HQ_IOT') THEN 'TC_HQ'\n    WHEN sec.name IN ('TC_UAIC','TC_UAIC_IOT') THEN 'TC_UAIC'\n    WHEN sec.name IN ('TP_XinYi','TP_XinYi_DMZ') THEN 'TP_XinYi'\n    ELSE sec.name\n  END AS 'Site',\n  CONCAT(INET_NTOA(s.subnet), '/', s.mask) AS 'Subnet CIDR',\n  IFNULL(s.description, '(空值)') AS 'Description',\n  sec.name AS 'Section'\nFROM subnets s\nJOIN sections sec ON s.sectionId = sec.id\nWHERE s.isFolder = 0\n  AND CAST(s.mask AS UNSIGNED) < 31\n  AND CAST(s.mask AS UNSIGNED) > 0\n  AND sec.name != 'TC_YueyuenHotel'\n  AND s.id NOT IN (SELECT DISTINCT masterSubnetId FROM subnets WHERE masterSubnetId != 0)\n  AND s.description NOT LIKE '%SRV%'\n  AND s.description NOT LIKE '%Server%'\n  AND s.description NOT LIKE '%IOT%'\n  AND s.description NOT LIKE '%IIOT%'\n  AND s.description NOT LIKE '%ACC%'\n  AND s.description NOT LIKE '%OA%'\n  AND s.description NOT LIKE '%VOICE%'\n  AND s.description NOT LIKE '%Guest%'\n  AND s.description NOT LIKE 'NET_%'\n  AND s.description NOT LIKE '%NET%'\nORDER BY site, s.description",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "⚠️OTHERS 網段清單（未明確定義分類網段用途）",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 33
+      },
+      "id": 102,
+      "title": "🔄 最近 24 小時靜態 IP 異動（MAC / Hostname / Owner）",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "選定時間範圍內的 IP 異動總筆數",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 50
+              },
+              {
+                "color": "orange",
+                "value": 200
+              },
+              {
+                "color": "red",
+                "value": 500
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 34
+      },
+      "id": 50,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS total_changes\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)",
+          "refId": "A"
+        }
+      ],
+      "title": "異動總筆數",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "欄位修改 (MAC/Hostname/Owner 變更)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 34
+      },
+      "id": 51,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS modify_count\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND changed_field = 'MODIFY'",
+          "refId": "A"
+        }
+      ],
+      "title": "MODIFY",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "IP 刪除紀錄",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "red",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 34
+      },
+      "id": 52,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(*) AS deleted_count\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND changed_field = 'DELETED'",
+          "refId": "A"
+        }
+      ],
+      "title": "DELETED",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "不同的 changed_by 操作者人數",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "purple",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 34
+      },
+      "id": 53,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "format": "table",
+          "rawSql": "SELECT COUNT(DISTINCT changed_by) AS operators\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND changed_by IS NOT NULL\n  AND changed_by != ''",
+          "refId": "A"
+        }
+      ],
+      "title": "活躍操作者",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "按小時聚合的 IP 異動數量，區分 MODIFY / DELETED / ADD",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "筆數",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 20,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DELETED"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MODIFY"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ADD"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 38
+      },
+      "id": 54,
+      "options": {
+        "legend": {
+          "calcs": [
+            "sum"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  $__timeGroupAlias(detected_at, 1h),\n  changed_field AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\nGROUP BY 1, changed_field\nORDER BY 1 ASC",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "每小時異動量",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "按日聚合的 IP 異動量趨勢",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-orange",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "筆數",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 30,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 6,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 100
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 38
+      },
+      "id": 55,
+      "options": {
+        "legend": {
+          "calcs": [
+            "sum",
+            "mean",
+            "max"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "format": "time_series",
+          "rawSql": "SELECT\n  $__timeGroupAlias(detected_at, 1d),\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE detected_at >= NOW() - INTERVAL 30 DAY\nGROUP BY 1\nORDER BY 1 ASC",
+          "refId": "A"
+        }
+      ],
+      "title": "每日異動趨勢",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "各異動類型 (ADD / MODIFY / DELETED) 的數量統計",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 48
+      },
+      "id": 56,
+      "options": {
+        "displayMode": "gradient",
+        "maxVizHeight": 300,
+        "minVizHeight": 10,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^value$/",
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  changed_field AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE detected_at >= NOW() - INTERVAL 24 HOUR\nGROUP BY changed_field\nORDER BY COUNT(*) DESC",
+          "refId": "A"
+        }
+      ],
+      "title": "變更類型分佈",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "各操作者 (changed_by) 的異動筆數排行",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 48
+      },
+      "id": 57,
+      "options": {
+        "displayMode": "gradient",
+        "maxVizHeight": 300,
+        "minVizHeight": 10,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^value$/",
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  IFNULL(changed_by, '(system)') AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE detected_at >= NOW() - INTERVAL 24 HOUR\nGROUP BY changed_by\nORDER BY COUNT(*) DESC",
+          "refId": "A"
+        }
+      ],
+      "title": "操作者排行",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "各 Section 的 IP 異動數量排行",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlYlRd"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 48
+      },
+      "id": 58,
+      "options": {
+        "displayMode": "gradient",
+        "maxVizHeight": 300,
+        "minVizHeight": 10,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^value$/",
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  IFNULL(section_name, '(unknown)') AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE detected_at >= NOW() - INTERVAL 24 HOUR\nGROUP BY section_name\nORDER BY COUNT(*) DESC\nLIMIT 10",
+          "refId": "A"
+        }
+      ],
+      "title": "Section 異動熱度 TOP 10",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "被修改最多次的 IP 位址，可能是問題設備",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 3
+              },
+              {
+                "color": "orange",
+                "value": 5
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 56
+      },
+      "id": 59,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  ip_display AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND LOWER(subnet_desc) NOT LIKE '%guest%'\nGROUP BY ip_addr, ip_display\nHAVING COUNT(*) > 1\nORDER BY COUNT(*) DESC\nLIMIT 5\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "高頻異動 IP TOP 5",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "metric": "IPs",
+              "value": "change_times"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "各子網路的異動統計：MODIFY / DELETED / ADD 筆數",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "transparent"
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 5
+                    },
+                    {
+                      "color": "orange",
+                      "value": 10
+                    },
+                    {
+                      "color": "red",
+                      "value": 20
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Del"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "text"
+                    },
+                    {
+                      "color": "red",
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 16,
+        "x": 8,
+        "y": 56
+      },
+      "id": 61,
+      "options": {
+        "cellHeight": "sm",
+        "enablePagination": true,
+        "footer": {
+          "countRows": true,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "count"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Total"
+          }
+        ]
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  subnet_cidr AS 'Subnet',\n  IFNULL(subnet_desc, '') AS 'Desc',\n  section_name AS 'Section',\n  SUM(changed_field = 'MODIFY') AS 'Mod',\n  SUM(changed_field = 'DELETED') AS 'Del',\n  COUNT(*) AS 'Total'\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND LOWER(IFNULL(subnet_desc, '')) NOT LIKE '%guest%'\n  AND IFNULL(section_name, '') != 'TC_YueyuenHotel'\nGROUP BY subnet_cidr, subnet_desc, section_name\nORDER BY COUNT(*) DESC\nLIMIT 30\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "子網路異動摘要",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "description": "偵測靜態 IP 的 MAC / Hostname / Owner 實際變更（非掃描觸發的 editDate 雜訊）",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Changed Field"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 130
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Old Value"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "New Value"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 65
+      },
+      "id": 20,
+      "options": {
+        "cellHeight": "sm",
+        "enablePagination": true,
+        "footer": {
+          "countRows": true,
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "count"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Detected"
+          }
+        ]
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "format": "table",
+          "rawSql": "SELECT\n  CONVERT_TZ(c.detected_at, '+08:00', '+00:00') AS 'Detected',\n  c.ip_display AS 'IP',\n  c.changed_field AS 'Changed Field',\n  c.old_value AS 'Old Value',\n  c.new_value AS 'New Value',\n  IFNULL(c.changed_by, '(unknown)') AS 'Changed By',\n  c.subnet_cidr AS 'Subnet',\n  c.subnet_desc AS 'Subnet Desc',\n  c.section_name AS 'Section'\nFROM grafana_ip_changes c\nWHERE c.detected_at >= NOW() - INTERVAL 24 HOUR\n  AND LOWER(c.subnet_desc) NOT LIKE '%guest%'\nORDER BY c.detected_at DESC\nLIMIT 200",
+          "refId": "A"
+        }
+      ],
+      "title": "靜態 IP 欄位變更紀錄 (24hr)",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 74
+      },
+      "id": 103,
+      "panels": [],
+      "title": "🔴 高使用率網段（>80%）",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "red",
+            "mode": "continuous-GrYlRd"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 80
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 75
+      },
+      "id": 30,
+      "options": {
+        "displayMode": "lcd",
+        "maxVizHeight": 300,
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^usage_pct$/",
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CONCAT(INET_NTOA(s.subnet), '/', s.mask) AS subnet,\n  ROUND(\n    SUM(CASE WHEN a.lastSeen IS NOT NULL AND a.lastSeen >= NOW() - INTERVAL 24 HOUR THEN 1 ELSE 0 END) / (POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2) * 100, 1\n  ) AS usage_pct\nFROM subnets s\nLEFT JOIN ipaddresses a ON s.id = a.subnetId\nWHERE s.isFolder = 0\n  AND CAST(s.mask AS UNSIGNED) < 31\n  AND CAST(s.mask AS UNSIGNED) > 0\n  AND s.sectionId NOT IN (SELECT id FROM sections WHERE name = 'TC_YueyuenHotel')\nGROUP BY s.id, s.subnet, s.mask\nHAVING usage_pct > 80\nORDER BY usage_pct DESC\nLIMIT 5",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "高使用率網段 TOP 5",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Usage %"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "yellow"
+                    },
+                    {
+                      "color": "orange",
+                      "value": 90
+                    },
+                    {
+                      "color": "red",
+                      "value": 95
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 75
+      },
+      "id": 31,
+      "options": {
+        "cellHeight": "sm",
+        "enablePagination": true,
+        "footer": {
+          "countRows": true,
+          "fields": "",
+          "reducer": [
+            "count"
+          ],
+          "show": true
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Usage %"
+          }
+        ]
+      },
+      "pluginVersion": "10.4.19+security-01",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
+          },
+          "format": "table",
+          "rawSql": "SELECT\n  CONCAT(INET_NTOA(s.subnet), '/', s.mask) AS 'Subnet CIDR',\n  s.description AS 'Description',\n  sec.name AS 'Section',\n  SUM(CASE WHEN a.lastSeen IS NOT NULL AND a.lastSeen >= NOW() - INTERVAL 24 HOUR THEN 1 ELSE 0 END) AS 'Used IPs',\n  CAST(POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 AS UNSIGNED) AS 'Total Hosts',\n  CAST(POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2 AS UNSIGNED) - SUM(CASE WHEN a.lastSeen IS NOT NULL AND a.lastSeen >= NOW() - INTERVAL 24 HOUR THEN 1 ELSE 0 END) AS 'Free IPs',\n  ROUND(\n    SUM(CASE WHEN a.lastSeen IS NOT NULL AND a.lastSeen >= NOW() - INTERVAL 24 HOUR THEN 1 ELSE 0 END) / (POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2) * 100, 1\n  ) AS 'Usage %'\nFROM subnets s\nLEFT JOIN ipaddresses a ON s.id = a.subnetId\nLEFT JOIN sections sec ON s.sectionId = sec.id\nWHERE s.isFolder = 0\n  AND CAST(s.mask AS UNSIGNED) < 31\n  AND CAST(s.mask AS UNSIGNED) > 0\n  AND sec.name != 'TC_YueyuenHotel'\nGROUP BY s.id, s.subnet, s.mask, s.description, sec.name\nHAVING `Usage %` > 80\nORDER BY `Usage %` DESC",
+          "refId": "A"
+        }
+      ],
+      "title": "高使用率網段明細",
+      "type": "table"
+    }
+  ],
+  "refresh": "5m",
+  "schemaVersion": 39,
+  "tags": [
+    "phpIPAM",
+    "daily",
+    "巡檢"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "phpIPAM 日巡檢 Dashboard",
+  "uid": "bfeykufe9qlfkf",
+  "version": 8,
+  "weekStart": ""
 }
