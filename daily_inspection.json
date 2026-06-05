@@ -1512,7 +1512,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n  IFNULL(section_name, '(unknown)') AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE detected_at >= NOW() - INTERVAL 24 HOUR\nGROUP BY section_name\nORDER BY COUNT(*) DESC\nLIMIT 10",
+          "rawSql": "SELECT\n  IFNULL(section_name, '(unknown)') AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE detected_at >= NOW() - INTERVAL 24 HOUR\nGROUP BY section_name\nORDER BY COUNT(*) DESC",
           "refId": "A"
         }
       ],
@@ -1590,7 +1590,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n  ip_display AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND LOWER(subnet_desc) NOT LIKE '%guest%'\nGROUP BY ip_addr, ip_display\nHAVING COUNT(*) > 1\nORDER BY COUNT(*) DESC\nLIMIT 5\n",
+          "rawSql": "SELECT\n  ip_display AS metric,\n  COUNT(*) AS value\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND LOWER(subnet_desc) NOT LIKE '%guest%'\nGROUP BY ip_addr, ip_display\nHAVING COUNT(*) > 1\nORDER BY COUNT(*) DESC\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -1764,7 +1764,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n  subnet_cidr AS 'Subnet',\n  IFNULL(subnet_desc, '') AS 'Desc',\n  section_name AS 'Section',\n  SUM(changed_field = 'MODIFY') AS 'Mod',\n  SUM(changed_field = 'DELETED') AS 'Del',\n  COUNT(*) AS 'Total'\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND LOWER(IFNULL(subnet_desc, '')) NOT LIKE '%guest%'\n  AND IFNULL(section_name, '') != 'TC_YueyuenHotel'\nGROUP BY subnet_cidr, subnet_desc, section_name\nORDER BY COUNT(*) DESC\nLIMIT 30\n",
+          "rawSql": "SELECT\n  subnet_cidr AS 'Subnet',\n  IFNULL(subnet_desc, '') AS 'Desc',\n  section_name AS 'Section',\n  SUM(changed_field = 'MODIFY') AS 'Mod',\n  SUM(changed_field = 'DELETED') AS 'Del',\n  COUNT(*) AS 'Total'\nFROM grafana_ip_changes\nWHERE $__timeFilter(detected_at)\n  AND LOWER(IFNULL(subnet_desc, '')) NOT LIKE '%guest%'\n  AND IFNULL(section_name, '') != 'TC_YueyuenHotel'\nGROUP BY subnet_cidr, subnet_desc, section_name\nORDER BY COUNT(*) DESC\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -1910,7 +1910,7 @@
             "uid": "f309677b-1ba0-4e8c-93b1-863abc193f8c"
           },
           "format": "table",
-          "rawSql": "SELECT\n  CONVERT_TZ(c.detected_at, '+08:00', '+00:00') AS 'Detected',\n  c.ip_display AS 'IP',\n  c.changed_field AS 'Changed Field',\n  c.old_value AS 'Old Value',\n  c.new_value AS 'New Value',\n  IFNULL(c.changed_by, '(unknown)') AS 'Changed By',\n  c.subnet_cidr AS 'Subnet',\n  c.subnet_desc AS 'Subnet Desc',\n  c.section_name AS 'Section'\nFROM grafana_ip_changes c\nWHERE c.detected_at >= NOW() - INTERVAL 24 HOUR\n  AND LOWER(c.subnet_desc) NOT LIKE '%guest%'\nORDER BY c.detected_at DESC\nLIMIT 200",
+          "rawSql": "SELECT\n  CONVERT_TZ(c.detected_at, '+08:00', '+00:00') AS 'Detected',\n  c.ip_display AS 'IP',\n  c.changed_field AS 'Changed Field',\n  c.old_value AS 'Old Value',\n  c.new_value AS 'New Value',\n  IFNULL(c.changed_by, '(unknown)') AS 'Changed By',\n  c.subnet_cidr AS 'Subnet',\n  c.subnet_desc AS 'Subnet Desc',\n  c.section_name AS 'Section'\nFROM grafana_ip_changes c\nWHERE c.detected_at >= NOW() - INTERVAL 24 HOUR\n  AND LOWER(c.subnet_desc) NOT LIKE '%guest%'\nORDER BY c.detected_at DESC",
           "refId": "A"
         }
       ],
@@ -1999,7 +1999,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\n  CONCAT(INET_NTOA(s.subnet), '/', s.mask) AS subnet,\n  ROUND(\n    SUM(CASE WHEN a.lastSeen IS NOT NULL AND a.lastSeen >= NOW() - INTERVAL 24 HOUR THEN 1 ELSE 0 END) / (POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2) * 100, 1\n  ) AS usage_pct\nFROM subnets s\nLEFT JOIN ipaddresses a ON s.id = a.subnetId\nWHERE s.isFolder = 0\n  AND CAST(s.mask AS UNSIGNED) < 31\n  AND CAST(s.mask AS UNSIGNED) > 0\n  AND s.sectionId NOT IN (SELECT id FROM sections WHERE name = 'TC_YueyuenHotel')\nGROUP BY s.id, s.subnet, s.mask\nHAVING usage_pct > 80\nORDER BY usage_pct DESC\nLIMIT 5",
+          "rawSql": "SELECT\n  CONCAT(INET_NTOA(s.subnet), '/', s.mask) AS subnet,\n  ROUND(\n    SUM(CASE WHEN a.lastSeen IS NOT NULL AND a.lastSeen >= NOW() - INTERVAL 24 HOUR THEN 1 ELSE 0 END) / (POW(2, 32 - CAST(s.mask AS UNSIGNED)) - 2) * 100, 1\n  ) AS usage_pct\nFROM subnets s\nLEFT JOIN ipaddresses a ON s.id = a.subnetId\nWHERE s.isFolder = 0\n  AND CAST(s.mask AS UNSIGNED) < 31\n  AND CAST(s.mask AS UNSIGNED) > 0\n  AND s.sectionId NOT IN (SELECT id FROM sections WHERE name = 'TC_YueyuenHotel')\nGROUP BY s.id, s.subnet, s.mask\nHAVING usage_pct > 80\nORDER BY usage_pct DESC",
           "refId": "A",
           "sql": {
             "columns": [
